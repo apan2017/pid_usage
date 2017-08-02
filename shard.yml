@@ -1,0 +1,9 @@
+name: pid_usage
+version: 0.1.0
+
+authors:
+  - apan <apan@xogrp.com>
+
+crystal: 0.23.0
+
+license: MIT
