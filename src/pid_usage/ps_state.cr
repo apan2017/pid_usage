@@ -3,10 +3,9 @@ module PidUsage
     REGEXP   = /(?<cpu>\d\.\d)\s*(?<rss>\d+)/
 
     def self.get_raw(pid : Int32)
-      output = IO::Memory.new
-      Process.run("ps", args: { "-o", "pcpu,rss", "-p", pid.to_s }, output: output)
-      output.close
-      output.to_s
+      String.build do |io|
+        Process.run("ps", args: { "-o", "pcpu,rss", "-p", pid.to_s }, output: io)
+      end
     end
 
     def self.info(pid : Int32)

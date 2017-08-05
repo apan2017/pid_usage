@@ -4,10 +4,9 @@ module PidUsage
     DEFAULT_PAGESIZE = 4096
 
     def self.getconf(name : String)
-      output = IO::Memory.new
-      Process.run("getconf", {name}, output: output)
-      output.close
-      output.to_s
+      String.build do |io|
+        Process.run("getconf", {name}, output: io)
+      end
     end
 
     def self.get_clk_tck
