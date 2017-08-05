@@ -1,6 +1,8 @@
 # pid_usage
 
-TODO: Write a description here
+A tool that get info of pid cpu and memory usage, inspire by https://github.com/soyuka/pidusage
+
+> Just test on osx and ubuntu.
 
 ## Installation
 
@@ -9,13 +11,15 @@ Add this to your application's `shard.yml`:
 ```yaml
 dependencies:
   pid_usage:
-    github: [your-github-name]/pid_usage
+    github: aiasfina/pid_usage
 ```
 
 ## Usage
 
 ```crystal
 require "pid_usage"
+
+PidUsage::State.info(pid)
 ```
 
 TODO: Write usage instructions here
